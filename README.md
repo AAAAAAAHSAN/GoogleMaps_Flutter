@@ -1,6 +1,6 @@
-# my_first_flutter
+# GoogleMpas_Flutter
 
-A new Flutter application.
+A simple flutter application showing google maps.
 
 ## Getting Started
 
