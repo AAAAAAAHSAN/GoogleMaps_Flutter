@@ -36,8 +36,8 @@ class _MyHomePageState extends State<MyHomePage>{
   GoogleMapController _controller;
 
   static final CameraPosition initialLocation = CameraPosition(
-    target: LatLng(24.56,89.12),
-    zoom: 11.0,
+    target: LatLng(23.7677,90.4825),
+    zoom: 10.0,
   );
   Future<Uint8List> getMarker() async{
     ByteData byteData = await DefaultAssetBundle.of(context).load("assets/dot.png");
