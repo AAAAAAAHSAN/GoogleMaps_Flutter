@@ -94,6 +94,31 @@ class _MyHomePageState extends State<MyHomePage>{
       }
     }
   }
+
+  Future<String> createAlertDialog(BuildContext context){
+
+    TextEditingController customController = TextEditingController();
+    return showDialog(context: context,builder: (context){
+      return AlertDialog(
+        title: Text("Type here"),
+        content: TextField(
+          controller: customController,
+        ),
+        actions: <Widget>[
+          MaterialButton(
+            elevation: 5.0,
+            child: Text('Submit'),
+            onPressed: (){
+              Navigator.of(context).pop(customController.text.toString());
+            },
+          )
+        ],
+      );
+    });
+  }
+
+
+
   @override
   void dispose(){
     if(_locationSubscription != null){
@@ -120,6 +145,11 @@ class _MyHomePageState extends State<MyHomePage>{
           child: Icon(Icons.location_searching),
           onPressed: () {
             getCurrentLocation();
+            createAlertDialog(context).then((onValue){
+              SnackBar mySnackBar = SnackBar(content: Text("Hello $onValue"));
+              Scaffold.of(context).showSnackBar(mySnackBar);
+
+            });
           }),
     );
 
